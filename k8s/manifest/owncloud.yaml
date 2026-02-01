@@ -39,10 +39,8 @@ spec:
 
       volumes:
         - name: owncloud-files
-          hostPath:
-            path: /mnt/nvme/k8s/volumes/owncloud/files
-            type: DirectoryOrCreate
-
+          persistentVolumeClaim:
+            claimName: owncloud-files-pvc
 
 ---
 apiVersion: v1
