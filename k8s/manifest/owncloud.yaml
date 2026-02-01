@@ -40,7 +40,7 @@ spec:
       volumes:
         - name: owncloud-files
           hostPath:
-            path: /opt/k8s-data/owncloud/files
+            path: /mnt/nvme/k8s/volumes/owncloud/files
             type: DirectoryOrCreate
 
 
