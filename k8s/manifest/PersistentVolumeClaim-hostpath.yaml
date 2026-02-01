@@ -11,31 +11,31 @@ spec:
   resources:
     requests:
       storage: 10Gi
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: mariadb-pvc
-  namespace: owncloud
-spec:
-  storageClassName: ""
-  volumeName: mariadb-pv
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 10Gi
----
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: redis-pvc
-  namespace: owncloud
-spec:
-  storageClassName: ""
-  volumeName: redis-pv
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
+#---
+#apiVersion: v1
+#kind: PersistentVolumeClaim
+#metadata:
+#  name: mariadb-pvc
+#  namespace: owncloud
+#spec:
+#  storageClassName: ""
+#  volumeName: mariadb-pv
+#  accessModes:
+#    - ReadWriteOnce
+#  resources:
+#    requests:
+#      storage: 10Gi
+#---
+#apiVersion: v1
+#kind: PersistentVolumeClaim
+#metadata:
+#  name: redis-pvc
+#  namespace: owncloud
+#spec:
+#  storageClassName: ""
+#  volumeName: redis-pv
+#  accessModes:
+#    - ReadWriteOnce
+#  resources:
+#    requests:
+#      storage: 1Gi
