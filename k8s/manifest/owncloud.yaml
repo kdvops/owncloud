@@ -13,8 +13,6 @@ spec:
       labels:
         app: owncloud
     spec:
-      securityContext:
-        fsGroup: 1005
       affinity:
         nodeAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
