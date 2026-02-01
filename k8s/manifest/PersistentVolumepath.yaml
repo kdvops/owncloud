@@ -9,7 +9,7 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: /opt/k8s-data/owncloud/files
+    path: /mnt/nvme/k8s/volumes/owncloud/files
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -22,7 +22,7 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: /opt/k8s-data/owncloud/mariadb
+    path: /mnt/nvme/k8s/volumes/owncloud/mariadb
 ---
 apiVersion: v1
 kind: PersistentVolume
@@ -35,4 +35,4 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: /opt/k8s-data/owncloud/redis
+    path: /mnt/nvme/k8s/volumes/owncloud/redis
