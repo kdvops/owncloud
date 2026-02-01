@@ -13,6 +13,16 @@ spec:
       labels:
         app: owncloud
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: storage
+                    operator: In
+                    values:
+                      - owncloud
+
       containers:
         - name: owncloud
           image: owncloud/server:10.16
@@ -26,10 +36,14 @@ spec:
           volumeMounts:
             - name: owncloud-files
               mountPath: /mnt/data
+
       volumes:
         - name: owncloud-files
-          persistentVolumeClaim:
-            claimName: owncloud-files-pvc
+          hostPath:
+            path: /opt/k8s-data/owncloud/files
+            type: DirectoryOrCreate
+
+
 ---
 apiVersion: v1
 kind: Service
