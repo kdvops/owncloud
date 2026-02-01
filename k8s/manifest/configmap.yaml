@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: owncloud-config
+  namespace: owncloud
+data:
+  OWNCLOUD_VERSION: "10.16"
+  OWNCLOUD_DOMAIN: "localhost:8080"
+  OWNCLOUD_TRUSTED_DOMAINS: "localhost"
+  OWNCLOUD_DB_TYPE: "mysql"
+  OWNCLOUD_DB_NAME: "owncloud"
+  OWNCLOUD_DB_USERNAME: "owncloud"
+  OWNCLOUD_DB_HOST: "mariadb"
+  OWNCLOUD_MYSQL_UTF8MB4: "true"
+  OWNCLOUD_REDIS_ENABLED: "true"
+  OWNCLOUD_REDIS_HOST: "redis"
