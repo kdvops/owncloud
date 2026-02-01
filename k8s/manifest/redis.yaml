@@ -31,7 +31,9 @@ metadata:
   name: redis
   namespace: owncloud
 spec:
+  type: ClusterIP
   ports:
     - port: 6379
+      targetPort: 6379
   selector:
     app: redis
