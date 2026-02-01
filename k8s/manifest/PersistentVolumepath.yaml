@@ -16,6 +16,7 @@ kind: PersistentVolume
 metadata:
   name: mariadb-pv
 spec:
+  storageClassName: ""
   capacity:
     storage: 10Gi
   accessModes:
