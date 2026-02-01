@@ -13,6 +13,16 @@ spec:
       labels:
         app: mariadb
     spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: storage
+                    operator: In
+                    values:
+                      - owncloud
+
       containers:
         - name: mariadb
           image: mariadb:10.11
