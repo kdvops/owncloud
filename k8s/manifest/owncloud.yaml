@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: owncloud
+  namespace: owncloud
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: owncloud
+  template:
+    metadata:
+      labels:
+        app: owncloud
+    spec:
+      containers:
+        - name: owncloud
+          image: owncloud/server:10.16
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: owncloud-config
+            - secretRef:
+                name: owncloud-secret
+          volumeMounts:
+            - name: owncloud-files
+              mountPath: /mnt/data
+      volumes:
+        - name: owncloud-files
+          persistentVolumeClaim:
+            claimName: owncloud-files-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: owncloud
+  namespace: owncloud
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      targetPort: 8080
+      nodePort: 30080
+  selector:
+    app: owncloud
