@@ -1,0 +1,28 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: owncloud
+  namespace: argocd
+spec:
+  project: default
+
+  source:
+    repoURL: https://github.com/kdvops/owncloud.git
+    targetRevision: HEAD
+    path: k8s/manifest
+    directory:
+      recurse: true
+      jsonnet: {}
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: owncloud
+
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true
+      - PruneLast=true
+      - ServerSideApply=true
