@@ -17,6 +17,7 @@ metadata:
   name: mariadb-pvc
   namespace: owncloud
 spec:
+  storageClassName: ""
   volumeName: mariadb-pv
   accessModes:
     - ReadWriteOnce
