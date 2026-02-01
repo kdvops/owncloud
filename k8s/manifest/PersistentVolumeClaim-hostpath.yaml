@@ -4,6 +4,7 @@ metadata:
   name: owncloud-files-pvc
   namespace: owncloud
 spec:
+  storageClassName: ""
   volumeName: owncloud-files-pv
   accessModes:
     - ReadWriteOnce
@@ -31,6 +32,7 @@ metadata:
   name: redis-pvc
   namespace: owncloud
 spec:
+  storageClassName: ""
   volumeName: redis-pv
   accessModes:
     - ReadWriteOnce
