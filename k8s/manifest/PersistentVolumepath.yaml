@@ -11,31 +11,31 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   hostPath:
     path: /mnt/nvme/k8s/volumes/owncloud/files
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: mariadb-pv
-spec:
-  storageClassName: ""
-  capacity:
-    storage: 10Gi
-  accessModes:
-    - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Retain
-  hostPath:
-    path: /mnt/nvme/k8s/volumes/owncloud/mariadb
----
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: redis-pv
-spec:
-  storageClassName: ""
-  capacity:
-    storage: 1Gi
-  accessModes:
-    - ReadWriteOnce
-  persistentVolumeReclaimPolicy: Retain
-  hostPath:
-    path: /mnt/nvme/k8s/volumes/owncloud/redis
+#---
+#apiVersion: v1
+#kind: PersistentVolume
+#metadata:
+#  name: mariadb-pv
+#spec:
+#  storageClassName: ""
+#  capacity:
+#    storage: 10Gi
+#  accessModes:
+#    - ReadWriteOnce
+#  persistentVolumeReclaimPolicy: Retain
+#  hostPath:
+#    path: /mnt/nvme/k8s/volumes/owncloud/mariadb
+#---
+#apiVersion: v1
+#kind: PersistentVolume
+#metadata:
+#  name: redis-pv
+#spec:
+#  storageClassName: ""
+#  capacity:
+#    storage: 1Gi
+#  accessModes:
+#    - ReadWriteOnce
+#  persistentVolumeReclaimPolicy: Retain
+#  hostPath:
+#    path: /mnt/nvme/k8s/volumes/owncloud/redis
